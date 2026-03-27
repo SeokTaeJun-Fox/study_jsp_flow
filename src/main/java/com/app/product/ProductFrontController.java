@@ -1,4 +1,4 @@
-package com.app.member;
+package com.app.product;
 
 import java.io.IOException;
 
@@ -13,11 +13,17 @@ import com.app.member.controller.MemberJoinOkController;
 import com.app.member.controller.MemberLoginController;
 import com.app.member.controller.MemberLoginOkController;
 import com.app.member.controller.MemberMyPageController;
+import com.app.product.controller.ProductDeleteOkController;
+import com.app.product.controller.ProductListController;
+import com.app.product.controller.ProductReadController;
+import com.app.product.controller.ProductUpdateController;
+import com.app.product.controller.ProductUpdateOkController;
+import com.app.product.controller.ProductWriteController;
+import com.app.product.controller.ProductWriteOkController;
 
-public class MemberFrontController extends HttpServlet {
+public class ProductFrontController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		req.setCharacterEncoding("UTF-8");
 	    resp.setContentType("text/html; charset=utf-8;");
 		String target = req.getRequestURI().replace(req.getContextPath() + "/", "").split("\\.")[0];
@@ -25,20 +31,20 @@ public class MemberFrontController extends HttpServlet {
 		Result result = null;
 		System.out.println(target);
 		
-		if(target.equals("join")) {
-			result = new MemberJoinController().excute(req, resp);
-		} else if (target.equals("join-ok")) {
-			result = new MemberJoinOkController().excute(req, resp);
-		} else if (target.equals("login")) {
-			result = new MemberLoginController().excute(req, resp);
-		} else if (target.equals("login-ok")) {
-			result = new MemberLoginOkController().excute(req, resp);
+		if(target.equals("write")) {
+			result = new ProductWriteController().excute(req, resp);
+		} else if (target.equals("write-ok")) {
+			result = new ProductWriteOkController().excute(req, resp);
+		} else if (target.equals("list")) {
+			result = new ProductListController().excute(req, resp);
+		} else if (target.equals("read")) {
+			result = new ProductReadController().excute(req, resp);
 		} else if (target.equals("update")) {
+			result = new ProductUpdateController().excute(req, resp);
 		} else if (target.equals("update-ok")) {
-		} else if (target.equals("withdraw")) {
-			
-		} else if (target.equals("my-page")) {
-			result = new MemberMyPageController().excute(req, resp);
+			result = new ProductUpdateOkController().excute(req, resp);
+		} else if (target.equals("delete-ok")) {
+			result = new ProductDeleteOkController().excute(req, resp);
 		} else {
 //			404
 		}
@@ -50,7 +56,6 @@ public class MemberFrontController extends HttpServlet {
 				req.getRequestDispatcher(result.getPath()).forward(req, resp);
 			}
 		}
-		
 	}
 	
 	@Override

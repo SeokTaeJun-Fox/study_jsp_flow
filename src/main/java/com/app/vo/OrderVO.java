@@ -2,15 +2,15 @@ package com.app.vo;
 
 import java.util.Objects;
 
-public class Order {
+public class OrderVO {
 	private Long id;
 	private Integer orderCount;
 	private Integer productId;
 	private Integer memberId;
 	
-	public Order() {;}
+	public OrderVO() {;}
 
-	public Order(Long id, Integer orderCount, Integer productId, Integer memberId) {
+	public OrderVO(Long id, Integer orderCount, Integer productId, Integer memberId) {
 		this.id = id;
 		this.orderCount = orderCount;
 		this.productId = productId;
@@ -68,7 +68,7 @@ public class Order {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		OrderVO other = (OrderVO) obj;
 		return Objects.equals(id, other.id);
 	}
 }

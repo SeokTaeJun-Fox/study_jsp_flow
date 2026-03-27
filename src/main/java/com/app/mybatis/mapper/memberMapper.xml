@@ -5,4 +5,32 @@
 		INSERT INTO TBL_MEMBER
 		VALUES(SEQ_MEMBER.NEXTVAL, #{memberEmail}, #{memberPassword}, #{memberName})
 	</insert>
+
+	
+	<select id="selectByMemberEmailAndMemberPassword" parameterType="MemberVO" resultType="MemberVO">
+		SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME
+		FROM TBL_MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+			AND MEMBER_PASSWORD = #{memberPassword}
+	</select>
+	
+	<select id="existsByMemberEmail" parameterType="String" resultType="int">
+		SELECT COUNT(*) IS_EXISTS
+		FROM TBL_MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>
+	
+	<!-- id로 회원 조회 -->
+	<select id="selectById" parameterType="Long" resultType="MemberVO">
+		SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME
+		FROM TBL_MEMBER
+		WHERE ID = #{id}
+	</select>
+	
+	<!-- memberEmail로 회원 조회 -->
+	<select id="selectByMemberEmail" parameterType="String" resultType="MemberVO">
+		SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME
+		FROM TBL_MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>
 </mapper>
