@@ -11,6 +11,7 @@
 <h1>가격 : ${product.productPrice}</h1>
 <h1>재고 : ${product.productStock}</h1>
 <a href="/flow/update.product?id=${product.id}">수정하기</a>
+<a href="/flow/delete-ok.product?id=${product.id}">삭제하기</a>
 
 </body>
 </html>

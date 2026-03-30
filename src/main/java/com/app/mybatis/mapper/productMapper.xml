@@ -23,6 +23,12 @@
 	WHERE ID = #{ID}
 </select>
 
+<select id="selectProductStockById" parameterType="Long" resultType="Integer">
+	SELECT PRODUCT_STOCK
+	FROM TBL_PRODUCT
+	WHERE ID = #{id}
+</select>
+
 <update id="update" parameterType="ProductVO">
 	UPDATE TBL_PRODUCT
 	SET PRODUCT_NAME = #{productName}, PRODUCT_PRICE = #{productPrice}, PRODUCT_STOCK = #{productStock}

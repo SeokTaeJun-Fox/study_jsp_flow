@@ -11,7 +11,8 @@
    <typeAliases>
    		 <typeAlias type="com.app.vo.MemberVO" alias="MemberVO"/> 
    		 <typeAlias type="com.app.vo.ProductVO" alias="productVO"/> 
-   		 <typeAlias type="com.app.vo.OrderVO" alias="OrderVO"/> 
+   		 <typeAlias type="com.app.vo.OrderVO" alias="OrderVO"/>
+   		 <typeAlias type="com.app.dto.OrderDTO" alias="OrderDTO"/>
    </typeAliases>
    
    <environments default="oracle">

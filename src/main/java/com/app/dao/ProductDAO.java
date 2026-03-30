@@ -30,11 +30,16 @@ public class ProductDAO {
 		return Optional.ofNullable(sqlSession.selectOne("product.selectById", id));
 	}
 	
+//	상품 재고 찾기
+	public Integer findProductStockById(Long id) {
+		return sqlSession.selectOne("product.selectProductStockById", id);
+	}
+	
 //	상품 수정
 	public void update(ProductVO productVO) {
 		sqlSession.update("product.update", productVO);
 	}
-	
+
 //	상품 삭제
 	public void delete(Long id) {
 		sqlSession.delete("product.delete", id);

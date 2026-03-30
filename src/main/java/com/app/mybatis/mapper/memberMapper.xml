@@ -33,4 +33,11 @@
 		FROM TBL_MEMBER
 		WHERE MEMBER_EMAIL = #{memberEmail}
 	</select>
+	
+	<!-- memberEmail로 ID 조회 -->
+	<select id="selectIdByMemberEmail" parameterType="String" resultType="Long">
+		SELECT ID
+		FROM TBL_MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>
 </mapper>

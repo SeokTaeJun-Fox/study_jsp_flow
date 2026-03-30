@@ -1,4 +1,4 @@
-package com.app.product.controller;
+package com.app.order.controller;
 
 import java.io.IOException;
 
@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.app.Action;
 import com.app.Result;
-import com.app.dao.ProductDAO;
+import com.app.dao.OrderDAO;
+import com.app.dto.OrderDTO;
 
-public class ProductDeleteOkController implements Action {
+public class OrderListController implements Action {
 
 	@Override
 	public Result excute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		Result result = new Result();
-		ProductDAO productDAO = new ProductDAO();
+		OrderDAO orderDAO = new OrderDAO();
 		
-		Long id = Long.parseLong(req.getParameter("id"));
-		productDAO.delete(id);
+		req.setAttribute("orders", orderDAO.findAll());
 		
-		result.setPath("/flow/list.product");
-		result.setRedirect(true);
+		result.setPath("/order/list.jsp");
 		
 		return result;
 	}

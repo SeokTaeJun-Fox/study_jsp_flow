@@ -5,12 +5,12 @@ import java.util.Objects;
 public class OrderVO {
 	private Long id;
 	private Integer orderCount;
-	private Integer productId;
-	private Integer memberId;
+	private Long productId;
+	private Long memberId;
 	
 	public OrderVO() {;}
 
-	public OrderVO(Long id, Integer orderCount, Integer productId, Integer memberId) {
+	public OrderVO(Long id, Integer orderCount, Long productId, Long memberId) {
 		this.id = id;
 		this.orderCount = orderCount;
 		this.productId = productId;
@@ -33,19 +33,19 @@ public class OrderVO {
 		this.orderCount = orderCount;
 	}
 
-	public Integer getProductId() {
+	public Long getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Integer productId) {
+	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
 
-	public Integer getMemberId() {
+	public Long getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(Integer memberId) {
+	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
 	}
 
