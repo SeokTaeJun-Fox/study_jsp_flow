@@ -14,7 +14,7 @@
    		 <typeAlias type="com.app.vo.OrderVO" alias="OrderVO"/>
    		 <typeAlias type="com.app.dto.OrderDTO" alias="OrderDTO"/>
    </typeAliases>
-   
+
    <environments default="oracle">
        <environment id="oracle">
           <transactionManager type="JDBC" />
